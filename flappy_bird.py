@@ -6,6 +6,8 @@ import os
 import random
 
 pygame.font.init()
+pygame.display.set_caption("Flappy Bird")
+
 
 WIN_WIDTH = 500
 WIN_HEIGHT = 800
@@ -23,7 +25,7 @@ PIPE_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "pipe
 BASE_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "base.png")))
 BG_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bg.png")))
 
-STAT_FONT = pygame.font.SysFont("comicsans", 50)
+STAT_FONT = pygame.font.SysFont("comicsans", 40)
 
 
 # Classes
@@ -192,8 +194,8 @@ def draw_window(window, birds, pipes, base, score, generation, alive):
     window.blit(text, (10, 10))
 
     # Display for number of birds alive
-    # text = STAT_FONT.render("Birds: " + str(alive), 1, (250, 250, 250))
-    # window.blit(text, (10, 60))
+    text = STAT_FONT.render("Birds: " + str(alive), 1, (250, 250, 250))
+    window.blit(text, (10, 60))
 
     base.draw(window)
     for bird in birds:
